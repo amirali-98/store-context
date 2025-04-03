@@ -1,11 +1,13 @@
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 import { useCart } from "../context/CartProvider";
+import useTitle from "../hooks/useTitle";
 
 import ProductCartButton from "../components/ProductCartButton";
 
 export default function Cart() {
   const { cart } = useCart();
+  useTitle("My Cart");
   return (
     <div className="flex flex-col gap-10 md:flex-row md:gap-10 md:items-start">
       <div className="md:w-[30%] bg-white p-3 rounded-xl mb-8 order-2 md:order-none">

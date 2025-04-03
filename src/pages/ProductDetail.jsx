@@ -5,15 +5,17 @@ import { BiCategory } from "react-icons/bi";
 import { IoArrowBack } from "react-icons/io5";
 
 import { useProducts } from "../context/ProductProvider";
+import useTitle from "../hooks/useTitle";
 
 export default function ProductDetail() {
   const [product, setProduct] = useState();
   const { products } = useProducts();
   const { productId } = useParams();
   const navigate = useNavigate();
+  useTitle(product?.title);
 
   useEffect(() => {
-    setProduct(products.find((p) => p.id.toString() === productId));
+    setProduct(products.find(p => p.id.toString() === productId));
   }, [products, productId]);
 
   return (
