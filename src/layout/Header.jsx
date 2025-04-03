@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 
 import { useCart } from "../context/CartProvider.jsx";
@@ -8,7 +8,9 @@ export default function Header() {
   const { cart } = useCart();
   return (
     <header className="flex justify-between items-center bg-orange-600 p-3 rounded-xl sticky top-2">
-      <p className="text-2xl font-bold text-white">Online Shop</p>
+      <Link to="/">
+        <p className="text-2xl font-bold text-white">Online Shop</p>
+      </Link>
 
       <button
         onClick={() => navigate("/cart")}
