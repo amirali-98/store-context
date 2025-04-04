@@ -25,3 +25,23 @@ export function categoryProducts(products, category) {
   }
   return products;
 }
+
+export function queryString({ search, category }) {
+  let queryString = {};
+
+  if (search && search !== "") {
+    queryString = {
+      ...queryString,
+      search,
+    };
+  }
+
+  if (category && category !== "all") {
+    queryString = {
+      ...queryString,
+      category,
+    };
+  }
+
+  return queryString;
+}
