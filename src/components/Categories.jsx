@@ -6,7 +6,11 @@ const categories = [
   { id: "5", title: "Women's clothing" },
 ];
 
-export default function Categories() {
+export default function Categories({ setQuery }) {
+  function categoryHandler(category) {
+    setQuery(query => ({ ...query, category }));
+  }
+
   return (
     <div className="mb-4">
       <h2 className="mb-2 text-2xl font-semibold text-orange-600">
@@ -17,6 +21,7 @@ export default function Categories() {
           <span
             key={category.id}
             className="shrink-0 bg-gray-400 text-white py-2 px-5 rounded-full cursor-pointer transition-colors hover:bg-gray-500"
+            onClick={() => categoryHandler(category.title.toLowerCase())}
           >
             {category.title}
           </span>

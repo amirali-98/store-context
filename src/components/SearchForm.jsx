@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 
-export default function SearchForm() {
+export default function SearchForm({ setQuery }) {
+  const [search, setSearch] = useState("");
   function submitHandler(e) {
     e.preventDefault();
+    setQuery(query => ({ ...query, search }));
   }
 
   return (
@@ -11,6 +14,8 @@ export default function SearchForm() {
         type="text"
         placeholder="Search..."
         className="border-2 border-dashed border-orange-600 p-1 px-2 bg-white rounded-xl h-10 w-[300px] outline-none"
+        value={search}
+        onChange={e => setSearch(e.target.value)}
       />
       <button
         type="submit"
